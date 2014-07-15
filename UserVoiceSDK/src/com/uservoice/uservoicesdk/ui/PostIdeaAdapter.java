@@ -1,8 +1,5 @@
 package com.uservoice.uservoicesdk.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -11,16 +8,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.uservoice.uservoicesdk.R;
 import com.uservoice.uservoicesdk.Session;
 import com.uservoice.uservoicesdk.babayaga.Babayaga;
 import com.uservoice.uservoicesdk.babayaga.Babayaga.Event;
-import com.uservoice.uservoicesdk.flow.SigninManager;
 import com.uservoice.uservoicesdk.flow.SigninCallback;
+import com.uservoice.uservoicesdk.flow.SigninManager;
 import com.uservoice.uservoicesdk.model.Category;
 import com.uservoice.uservoicesdk.model.Suggestion;
 import com.uservoice.uservoicesdk.rest.RestResult;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostIdeaAdapter extends InstantAnswersAdapter {
 
@@ -98,6 +97,8 @@ public class PostIdeaAdapter extends InstantAnswersAdapter {
             // just skip the else
         } else if (type == TEXT) {
             TextView textView = (TextView) view.findViewById(R.id.uv_text);
+            final int color = textView.getCurrentHintTextColor();
+            textView.setTextColor(color);
             textView.setHint(R.string.uv_idea_text_hint);
             textView.setMinLines(1);
         } else {
